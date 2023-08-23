@@ -12,26 +12,27 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:3000/api/qrcodes
+GET http://localhost:3000/api/qrcodes/64e616a8b74bbcba6c7fd505
+
+
+###
+GET http://localhost:3000/api/qrcodes/64e613f579ae06a893d88f10
 
 ###
 
-GET http://localhost:3000/api/qrcodes/codeit
-
-###
-
-PATCH http://localhost:3000/api/qrcodes/codeit
+PATCH http://localhost:3000/api/qrcodes/64e613f579ae06a893d88f10
 Content-Type: application/json
 
 {
-  "title": "위키피디아 Next.js",
-  "url": "https://en.wikipedia.org/wiki/Next.js"
+  "id":"64e613f579ae06a893d88f10",
+  "title": "위키피디아 React.js",
+  "url": "https://en.wikipedia.org/wiki/react.js"
 }
 
 ###
 
-DELETE http://localhost:3000/api/qrcodes/codeit
+DELETE http://localhost:3000/api/qrcodes/64e613f579ae06a893d88f10
 
 ###
 
-POST http://localhost:3000/api/qrcodes/codeit
+POST http://localhost:3000/api/qrcodes/64e616a8b74bbcba6c7fd505

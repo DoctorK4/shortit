@@ -1,29 +1,20 @@
-export default function handler(req, res) {
-  let db = [
-    {
-      "id": "abc",
-      "title": "위키피디아 Next.js",
-      "url": "https://en.wikipedia.org/wiki/Next.js"
-    },
-    {
-      "id": "def",
-      "title": "코드잇 자유게시판",
-      "url": "https://codeit.kr/community/general"
-    },
-    {
-      "id": "ghi",
-      "title": "코드잇 질문답변",
-      "url": "https://www.codeit.kr/community/questions"
-    }
-  ];
+import dbConnect from "@/db/dbConnect";
+import QRCode from "@/db/models/QRCode";
+import mongoose from "mongoose";
+
+export default async function handler(req, res) {
+  await dbConnect();
+  console.log(mongoose.connection.readyState); 
+  const body = req.body;
 
   switch (req.method) {
     case 'GET':
-      res.status(200).send(db);
+      const dataList = await QRCode.find()
+      res.status(200).send(dataList);
       break;
     case 'POST':
-      let newUrl = req.body;
-      res.status(201).send(newUrl);
+      const newData = await QRCode.create(body);
+      res.status(201).send(newData);
       break;
     default:
       res.status(404).send();
