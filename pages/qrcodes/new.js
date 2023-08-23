@@ -10,7 +10,7 @@ export default function QRCodeCreatePage() {
     await axios.post('/qrcodes/', values);
     router.push('/qrcodes');
   };
-
+  
   return (
     <>
       <Head>

@@ -6,7 +6,7 @@ import ShortLink from '@/db/models/ShortLink';
 import axios from '@/lib/axios';
 import { useRouter } from 'next/router';
 
-export async function getServerSideProps({ context }) {
+export async function getServerSideProps(context) {
   const { id } = context.query;
   await dbConnect();
   const shortLink = await ShortLink.findById(id);
